@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
 :root {
+  /* 基础：纯净冷白，透出一点点高级灰 */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #020617; /* 极深蓝黑，比纯黑更有深度 */
+
+  /* 弱化：使用微弱的灰蓝色，增加专业感 */
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+
+  /* 边框：极细且透明度适中 */
+  --border: #e2e8f0;
+  --input: #f1f5f9;
+
+  /* 卡片：增加微弱阴影暗示层级 */
+  --card: #ffffff;
+  --card-foreground: #020617;
+
+  /* 品牌色：引入更具冲击力的深色或极具质感的蓝色 */
+  --primary: #0f172a;
+  --primary-foreground: #f8fafc;
+
+  /* 强调色：在高级感中，Accent 通常用来做 Hover 态，不宜过重 */
+  --accent: #f8fafc;
+  --accent-foreground: #0f172a;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+
+  --ring: rgba(15, 23, 42, 0.15); /* 柔和的环绕阴影 */
+  --radius: 0.75rem; /* 统一的圆角标准 */
+}
+
+.dark {
+  /* 核心：不要纯黑，要那种深邃的深空黑 */
+  --background: #020617;
+  --foreground: #f8fafc;
+
+  /* 关键：暗色模式下的卡片要比背景亮一点点，拉开空间深度 */
+  --card: #0b1120;
+  --card-foreground: #f8fafc;
+
+  --muted: #0f172a;
+  --muted-foreground: #94a3b8;
+
+  /* 暗色边框：这是高级感的来源，不要太亮 */
+  --border: rgba(255, 255, 255, 0.06);
+  --input: rgba(255, 255, 255, 0.03);
+
+  --primary: #f8fafc;
+  --primary-foreground: #020617;
+
+  --accent: rgba(255, 255, 255, 0.04);
+  --accent-foreground: #f8fafc;
+
+  --ring: rgba(248, 250, 252, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-ring: var(--ring);
+  --radius-xl: var(--radius);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: "Geist Variable", "Inter", system-ui, sans-serif;
+  --font-mono: "Geist Mono", monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-feature-settings: "cv11", "ss01"; /* 开启字体的替代字符增强视觉 */
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* 高级感核心：全局滚动条定制 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 10px;
 }
