@@ -1,7 +1,41 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react"; // 记得安装 lucide-react
+import { Quote } from "lucide-react";
+
+const clientLogos = [
+  {
+    name: "AWS",
+    path: "/Home/Amazon_Web_Services-Logo.wine.png",
+    width: 120,
+    height: 60,
+  },
+  {
+    name: "Alibaba Cloud",
+    path: "/Home/ali.png",
+    width: 120,
+    height: 60,
+  },
+  {
+    name: "Google Cloud",
+    path: "/Home/Logo-Google-Cloud-b.png",
+    width: 140,
+    height: 50,
+  },
+  {
+    name: "Microsoft Azure",
+    path: "/Home/Microsoft-Azure-logo.png",
+    width: 140,
+    height: 50,
+  },
+  {
+    name: "Baidu",
+    path: "/Home/brand_cloud_v5-b.png",
+    width: 140,
+    height: 50,
+  },
+];
 
 const testimonials = [
   {
@@ -57,15 +91,24 @@ export function Testimonials() {
           />
         </div>
 
-        {/* 2. 底部客户 Logo 壁垒 (极简灰度) */}
-        <div className="mt-24 flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
-          {["Stripe", "Vercel", "Linear", "OpenAI", "Github"].map((logo) => (
-            <span
-              key={logo}
-              className="text-xl font-black tracking-tighter cursor-default hover:text-primary transition-colors"
+        {/* 2. 底部客户 Logo 壁垒 (图片展示) */}
+        <div className="mt-24 flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 hover:opacity-100 transition-opacity duration-700">
+          {clientLogos.map((logo) => (
+            <motion.div
+              key={logo.name}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="relative grayscale hover:grayscale-0 transition-all duration-500"
             >
-              {logo.toUpperCase()}
-            </span>
+              <Image
+                src={logo.path}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
+                className="object-contain"
+              />
+            </motion.div>
           ))}
         </div>
       </div>
