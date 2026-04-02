@@ -99,3 +99,21 @@ body {
   background: var(--muted);
   border-radius: 10px;
 }
+
+@layer utilities {
+  .bg-surface {
+    background-color: var(--card) !important;
+  }
+  .bg-surface-hover:hover {
+    background-color: var(--accent) !important;
+  }
+  .text-surface {
+    color: var(--foreground) !important;
+  }
+  .border-surface {
+    border-color: var(--border) !important;
+  }
+  .shadow-surface {
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.1);
+  }
+}

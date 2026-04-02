@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 const milestones = [
   {
@@ -32,7 +31,7 @@ const milestones = [
 
 export function OurStory() {
   return (
-    <section className="relative py-32 bg-white dark:bg-[#050505] transition-colors duration-700">
+    <section className="relative py-32 bg-card dark:bg-[#050505] transition-colors duration-700">
       {/* 背景装饰：极淡的水平辅助线 */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]">
         <div className="h-full w-full bg-[linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:100%_80px]" />
@@ -53,13 +52,13 @@ export function OurStory() {
                   Evolutionary Path
                 </span>
               </div>
-              <h2 className="text-6xl font-black tracking-tighter leading-[0.85] text-slate-900 dark:text-white uppercase">
+              <h2 className="text-6xl font-black tracking-tighter leading-[0.85] text-foreground dark:text-white uppercase">
                 我们的 <br />
-                <span className="text-transparent stroke-slate-200 dark:stroke-white/10 [-webkit-text-stroke:1px_currentColor] italic">
+                <span className="text-transparent stroke-white/10 dark:stroke-white/10 [-webkit-text-stroke:1px_currentColor] italic">
                   时空轴
                 </span>
               </h2>
-              <p className="text-slate-500 dark:text-zinc-500 text-sm max-w-xs leading-relaxed">
+              <p className="text-muted-foreground dark:text-muted-foreground text-sm max-w-xs leading-relaxed">
                 记录从 0 到 1
                 的每一个算力脉冲。这不仅是公司的成长史，更是云计算进化的缩影。
               </p>
@@ -69,14 +68,14 @@ export function OurStory() {
           {/* 右侧：纵向演进流 */}
           <div className="lg:col-span-8 relative">
             {/* 核心垂直线 */}
-            <div className="absolute left-0 top-0 w-[1px] h-full bg-slate-200 dark:bg-white/10" />
+            <div className="absolute left-0 top-0 w-[1px] h-full bg-muted dark:bg-card/10" />
 
             <div className="space-y-32">
               {milestones.map((m, i) => (
                 <div key={m.year} className="relative pl-12 lg:pl-24 group">
                   {/* 时间锚点：不再是圆圈，是十字线 */}
                   <div className="absolute left-[-5px] top-4 flex items-center justify-center">
-                    <div className="w-[10px] h-[10px] bg-white dark:bg-[#050505] border border-primary z-10" />
+                    <div className="w-[10px] h-[10px] bg-card dark:bg-[#050505] border border-primary z-10" />
                     <div className="absolute w-8 h-[1px] bg-primary/30 group-hover:w-12 transition-all" />
                   </div>
 
@@ -86,19 +85,19 @@ export function OurStory() {
                     transition={{ delay: i * 0.1 }}
                   >
                     <div className="flex flex-col md:flex-row md:items-end gap-4 mb-6">
-                      <span className="text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white opacity-10 group-hover:opacity-100 transition-opacity duration-700">
+                      <span className="text-6xl lg:text-7xl font-black tracking-tighter text-foreground dark:text-white opacity-10 group-hover:opacity-100 transition-opacity duration-700">
                         {m.year}
                       </span>
                       <span className="text-[10px] font-mono tracking-[0.5em] text-primary uppercase pb-2">
-                        // {m.tag}
+                        {`// ${m.tag}`}
                       </span>
                     </div>
 
                     <div className="max-w-xl">
-                      <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-zinc-200">
+                      <h3 className="text-2xl font-bold mb-4 text-foreground dark:text-foreground">
                         {m.title}
                       </h3>
-                      <p className="text-slate-500 dark:text-zinc-500 leading-relaxed font-light text-lg">
+                      <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed font-light text-lg">
                         {m.desc}
                       </p>
                     </div>

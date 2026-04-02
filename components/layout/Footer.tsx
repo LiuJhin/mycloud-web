@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 
 // 建议将链接抽取出来，方便维护
 const footerLinks = [

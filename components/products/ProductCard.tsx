@@ -10,15 +10,15 @@ export function ProductCard({ product }: { product: Product }) {
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="group relative bg-white dark:bg-[#080808] border border-slate-100 dark:border-white/5 p-8 transition-all hover:bg-slate-50 dark:hover:bg-white/[0.02] overflow-hidden"
+      className="group relative bg-card text-foreground border border-border p-8 transition-all hover:bg-accent-foreground/10 dark:hover:bg-accent transition-shadow overflow-hidden"
     >
       {/* 1. 顶部装饰：扫描线与元数据 */}
       <div className="flex justify-between items-start mb-12">
-        <div className="flex items-center rounded-[2px] overflow-hidden border border-slate-200 dark:border-white/10 shadow-sm">
-          <span className="px-1.5 py-0.5 text-[8px] font-black bg-slate-900 dark:bg-white text-white dark:text-black uppercase tracking-tighter">
+        <div className="flex items-center rounded-[2px] border border-border shadow-sm bg-accent/20">
+          <span className="px-1.5 py-0.5 text-[8px] font-black bg-foreground text-background uppercase tracking-tighter">
             UNIT
           </span>
-          <span className="px-1.5 py-0.5 text-[8px] font-mono text-slate-500 dark:text-zinc-500">
+          <span className="px-1.5 py-0.5 text-[8px] font-mono text-muted-foreground">
             0x{product.id.slice(0, 5).toUpperCase()}
           </span>
         </div>
@@ -28,13 +28,13 @@ export function ProductCard({ product }: { product: Product }) {
       {/* 2. 主内容区域 */}
       <div className="space-y-6">
         <div className="space-y-2">
-          <h3 className="text-2xl font-black tracking-tight text-slate-900 dark:text-white uppercase leading-none group-hover:translate-x-1 transition-transform">
+          <h3 className="text-2xl font-black tracking-tight text-foreground uppercase leading-none group-hover:translate-x-1 transition-transform">
             {product.name}
           </h3>
           <div className="h-[1px] w-8 bg-primary/30 group-hover:w-16 transition-all duration-500" />
         </div>
 
-        <p className="text-slate-500 dark:text-zinc-500 text-sm leading-relaxed font-light min-h-[60px]">
+        <p className="text-muted-foreground text-sm leading-relaxed font-light min-h-[60px]">
           {product.description}
         </p>
       </div>
@@ -46,7 +46,7 @@ export function ProductCard({ product }: { product: Product }) {
             Start_From
           </p>
           {product.price !== undefined ? (
-            <div className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter font-mono">
+            <div className="text-3xl font-black text-foreground tracking-tighter font-mono">
               ${product.price}
               <span className="text-xs opacity-30 font-sans ml-1">/mo</span>
             </div>

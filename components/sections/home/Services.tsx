@@ -40,7 +40,7 @@ const services = [
 
 export function Services() {
   return (
-    <section className="relative py-32 bg-[#020617] text-white overflow-hidden">
+    <section className="relative py-32 bg-card text-foreground dark:bg-background dark:text-foreground overflow-hidden">
       {/* 1. 装饰性网格背景 (极淡) */}
       <div className="absolute inset-0 opacity-[0.03] [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px]" />
@@ -69,7 +69,7 @@ export function Services() {
         {/* 3. 错位布局服务流 */}
         <div className="space-y-0 relative">
           {/* 中心贯穿线 */}
-          <div className="absolute left-1/2 top-0 w-[1px] h-full bg-zinc-800 hidden lg:block" />
+          <div className="absolute left-1/2 top-0 w-[1px] h-full bg-border hidden lg:block" />
 
           {services.map((s, idx) => (
             <div
@@ -78,8 +78,8 @@ export function Services() {
             >
               {/* 装饰锚点 */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-zinc-900 border border-zinc-700 z-10 group-hover:scale-150 group-hover:bg-primary transition-all duration-500" />
-                <Plus className="absolute w-10 h-10 text-zinc-800 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="w-3 h-3 rounded-full bg-card border border-border z-10 group-hover:scale-150 group-hover:bg-primary transition-all duration-500" />
+                <Plus className="absolute w-10 h-10 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
               <motion.div
@@ -90,27 +90,27 @@ export function Services() {
               >
                 {/* 编号与标签 */}
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="text-4xl font-mono opacity-20 italic font-light">
+                  <span className="text-4xl font-mono opacity-20 italic font-light text-muted-foreground">
                     {s.id}
                   </span>
                   <div className="h-[1px] w-12 bg-primary/30" />
-                  <span className="text-xs tracking-widest text-zinc-500 uppercase">
+                  <span className="text-xs tracking-widest text-muted-foreground uppercase">
                     {s.tag}
                   </span>
                 </div>
 
-                <h3 className="text-3xl font-bold mb-6 group-hover:text-primary transition-colors">
+                <h3 className="text-3xl font-bold mb-6 group-hover:text-primary transition-colors text-foreground">
                   {s.title}
                 </h3>
 
-                <p className="text-zinc-400 leading-relaxed text-lg mb-8">
+                <p className="text-muted-foreground leading-relaxed text-lg mb-8">
                   {s.desc}
                 </p>
 
                 {/* 极简按钮 */}
                 <button className="flex items-center gap-2 text-sm font-semibold group/btn">
                   Explore Architecture
-                  <div className="w-8 h-[1px] bg-zinc-700 group-hover/btn:w-16 group-hover/btn:bg-primary transition-all" />
+                  <div className="w-8 h-[1px] bg-border group-hover/btn:w-16 group-hover/btn:bg-primary transition-all" />
                 </button>
               </motion.div>
             </div>

@@ -16,7 +16,7 @@ export function AboutHero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[90vh] flex items-center justify-center bg-white dark:bg-[#020202] transition-colors duration-700 overflow-hidden"
+      className="relative min-h-[90vh] flex items-center justify-center bg-background text-foreground transition-colors duration-700 overflow-hidden"
     >
       {/* 1. 动态光场：浅色下是柔和的蓝紫色，深色下是深邃的霓虹 */}
       <div className="absolute inset-0 z-0">
@@ -36,7 +36,7 @@ export function AboutHero() {
         style={{ y }}
         className="absolute inset-0 flex items-center justify-center select-none pointer-events-none z-0"
       >
-        <span className="text-[25vw] font-black text-slate-100 dark:text-white/[0.02] tracking-tighter uppercase leading-none">
+        <span className="text-[25vw] font-black text-accent dark:text-white/[0.02] tracking-tighter uppercase leading-none">
           Legacy
         </span>
       </motion.div>
@@ -48,10 +48,10 @@ export function AboutHero() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="inline-flex items-center gap-3 px-3 py-1 rounded-full border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-white/5 backdrop-blur-md"
+              className="inline-flex items-center gap-3 px-3 py-1 rounded-full border border-border bg-accent/50 dark:bg-accent/30 backdrop-blur-md"
             >
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-slate-500 dark:text-zinc-400">
+              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-muted-foreground">
                 Established 2026
               </span>
             </motion.div>
@@ -61,10 +61,10 @@ export function AboutHero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-7xl md:text-8xl lg:text-[10vw] font-black tracking-[-0.08em] leading-[0.8] text-slate-900 dark:text-white uppercase"
+              className="text-7xl md:text-8xl lg:text-[10vw] font-black tracking-[-0.08em] leading-[0.8] text-foreground uppercase"
             >
               重塑数字 <br />
-              <span className="text-transparent stroke-slate-200 dark:stroke-white/20 [-webkit-text-stroke:1px_currentColor] italic">
+              <span className="text-transparent stroke-white/10 dark:stroke-white/20 [-webkit-text-stroke:1px_currentColor] italic">
                 新原点
               </span>
             </motion.h1>
@@ -76,7 +76,7 @@ export function AboutHero() {
               transition={{ delay: 0.5 }}
               className="flex items-start gap-6 border-l-2 border-primary/30 pl-6 max-w-2xl"
             >
-              <p className="text-lg md:text-xl text-slate-500 dark:text-zinc-400 font-medium leading-relaxed italic">
+              <p className="text-lg md:text-xl text-muted-foreground dark:text-muted-foreground font-medium leading-relaxed italic">
                 我们不只是云计算的提供者，我们是每一个数字化梦想的“硬核”合伙人。
                 通过底层架构的极致优化，为未来十年的技术爆发预留空间。
               </p>
@@ -85,7 +85,7 @@ export function AboutHero() {
 
           {/* 右侧：装饰性几何体（增加画面的“重工业感”） */}
           <div className="hidden lg:block relative w-64 h-64">
-            <div className="absolute inset-0 border border-slate-200 dark:border-white/10 rounded-full animate-[spin_20s_linear_infinite]" />
+            <div className="absolute inset-0 border border-border dark:border-white/10 rounded-full animate-[spin_20s_linear_infinite]" />
             <div className="absolute inset-4 border border-primary/20 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-2 h-2 bg-primary rounded-full shadow-[0_0_20px_rgba(var(--primary-rgb),0.8)]" />
@@ -95,7 +95,7 @@ export function AboutHero() {
       </div>
 
       {/* 底部装饰性横杠 */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-border dark:via-border to-transparent" />
     </section>
   );
 }

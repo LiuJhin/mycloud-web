@@ -32,7 +32,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-32 bg-background overflow-hidden relative">
+    <section className="py-32 bg-card dark:bg-background overflow-hidden relative">
       {/* 背景装饰：一个巨大的、模糊的品牌色光环 */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -41,7 +41,7 @@ export function Testimonials() {
           <h2 className="text-primary text-xs font-bold tracking-[0.4em] uppercase mb-6">
             Social Proof
           </h2>
-          <h3 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight">
+          <h3 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight text-foreground">
             全球领军企业的 <br />
             <span className="text-muted-foreground/40">共同选择。</span>
           </h3>
@@ -101,17 +101,17 @@ function MarqueeRow({
         {scrollItems.map((t, i) => (
           <div
             key={i}
-            className="w-[400px] md:w-[500px] shrink-0 p-8 rounded-[2.5rem] border border-white/5 bg-zinc-900/40 backdrop-blur-sm hover:bg-zinc-800/60 transition-colors group/card"
+            className="w-[400px] md:w-[500px] shrink-0 p-8 rounded-[2.5rem] border border-border bg-card/70 dark:bg-card/80 backdrop-blur-sm hover:bg-accent/30 dark:hover:bg-accent/20 transition-colors group/card"
           >
             <Quote className="w-10 h-10 text-primary/20 mb-6 group-hover/card:text-primary/40 transition-colors" />
-            <p className="text-lg md:text-xl font-medium leading-relaxed text-zinc-300 mb-8 whitespace-normal">
+            <p className="text-lg md:text-xl font-medium leading-relaxed text-muted-foreground mb-8 whitespace-normal">
               “{t.content}”
             </p>
             <div className="flex flex-col">
-              <span className="font-bold text-white tracking-tight">
+              <span className="font-bold text-foreground tracking-tight">
                 {t.name}
               </span>
-              <span className="text-xs text-zinc-500 font-mono mt-1">
+              <span className="text-xs text-muted-foreground font-mono mt-1">
                 {t.role}
               </span>
             </div>

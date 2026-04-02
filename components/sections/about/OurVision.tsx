@@ -16,7 +16,7 @@ export function OurVision() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[80vh] flex items-center bg-white dark:bg-[#020202] py-40 overflow-hidden transition-colors duration-700"
+      className="relative min-h-[80vh] flex items-center bg-card dark:bg-[#020202] py-40 overflow-hidden transition-colors duration-700"
     >
       {/* 背景层：动态光学噪点与网格 */}
       <div className="absolute inset-0 z-0">
@@ -42,11 +42,11 @@ export function OurVision() {
             whileInView={{ opacity: 1, x: 0 }}
             className="mb-12 flex items-center gap-4"
           >
-            <div className="flex items-center rounded-sm border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 overflow-hidden">
-              <span className="px-2 py-0.5 text-[9px] font-black bg-slate-900 dark:bg-white text-white dark:text-black uppercase tracking-widest">
+            <div className="flex items-center rounded-sm border border-border dark:border-white/10 bg-card/50 dark:bg-card/5 overflow-hidden">
+              <span className="px-2 py-0.5 text-[9px] font-black bg-foreground dark:bg-card text-white dark:text-black uppercase tracking-widest">
                 MISSION
               </span>
-              <span className="px-2 py-0.5 text-[9px] font-mono text-slate-500 dark:text-zinc-500">
+              <span className="px-2 py-0.5 text-[9px] font-mono text-muted-foreground dark:text-muted-foreground">
                 0xVISION_2026
               </span>
             </div>
@@ -59,10 +59,10 @@ export function OurVision() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-6xl md:text-8xl lg:text-[9vw] font-black tracking-[-0.06em] leading-[0.85] text-slate-900 dark:text-white uppercase"
+              className="text-6xl md:text-8xl lg:text-[9vw] font-black tracking-[-0.06em] leading-[0.85] text-foreground dark:text-white uppercase"
             >
               让每一比特 <br />
-              <span className="text-transparent stroke-slate-200 dark:stroke-white/20 [-webkit-text-stroke:1px_currentColor] italic">
+              <span className="text-transparent stroke-white/10 dark:stroke-white/20 [-webkit-text-stroke:1px_currentColor] italic">
                 触手可及
               </span>
             </motion.h2>
@@ -72,10 +72,10 @@ export function OurVision() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-12 border-t border-slate-100 dark:border-white/5"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-12 border-t border-border dark:border-white/5"
             >
               <div className="lg:col-span-7">
-                <p className="text-xl md:text-2xl text-slate-500 dark:text-zinc-400 font-light leading-relaxed">
+                <p className="text-xl md:text-2xl text-muted-foreground dark:text-muted-foreground font-light leading-relaxed">
                   我们的愿景不只是“提供云服务”，而是构建一个
                   **“无摩擦的数字地平线”**。
                   通过重塑算力的物理极限，让每一家企业都能像呼吸空气一样，自由、无感地调用全球算力。
@@ -85,7 +85,7 @@ export function OurVision() {
                 <span className="text-[10px] font-mono text-primary font-black tracking-[0.4em] uppercase">
                   Status: Operational
                 </span>
-                <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest opacity-40">
+                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest opacity-40">
                   System Version 4.0.1_R
                 </span>
               </div>
@@ -95,7 +95,7 @@ export function OurVision() {
       </div>
 
       {/* 4. 底部装饰：精密坐标线 */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border dark:via-border to-transparent" />
     </section>
   );
 }

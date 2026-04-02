@@ -7,7 +7,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export function CTA() {
   return (
-    <section className="relative py-32 lg:py-48 bg-[#020617] overflow-hidden">
+    <section className="relative py-32 lg:py-48 bg-card dark:bg-background overflow-hidden">
       {/* 1. 背景能量场：巨大的径向渐变 */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/10 blur-[120px] rounded-full pointer-events-none opacity-50" />
 
@@ -19,7 +19,7 @@ export function CTA() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-accent/30 text-primary mb-8"
         >
           <Sparkles className="w-4 h-4" />
           <span className="text-xs font-bold tracking-widest uppercase">
@@ -31,7 +31,7 @@ export function CTA() {
         <motion.h2
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          className="text-6xl md:text-8xl font-black tracking-tighter italic leading-[0.85] text-white mb-8"
+          className="text-6xl md:text-8xl font-black tracking-tighter italic leading-[0.85] text-foreground mb-8"
         >
           准备好进入 <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20">
@@ -43,7 +43,7 @@ export function CTA() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           不仅仅是云服务器，更是为您企业量身定制的数字大脑。 立即加入
           MyCloud，重构您的核心竞争力。
@@ -70,7 +70,7 @@ export function CTA() {
             <Button
               size="lg"
               variant="outline"
-              className="h-14 px-10 rounded-full border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all text-white"
+              className="h-14 px-10 rounded-full border-border bg-accent/20 backdrop-blur-md hover:bg-accent/40 hover:border-primary transition-all text-foreground"
             >
               技术架构咨询
             </Button>
@@ -79,7 +79,7 @@ export function CTA() {
 
         {/* 底部装饰：极细的渐变消失线 */}
         <div className="mt-32 flex justify-center">
-          <div className="h-[1px] w-full max-w-4xl bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          <div className="h-[1px] w-full max-w-4xl bg-gradient-to-r from-transparent via-border to-transparent" />
         </div>
       </div>
     </section>

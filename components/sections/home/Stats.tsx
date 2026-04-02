@@ -17,9 +17,9 @@ const stats = [
 
 export function Stats() {
   return (
-    <section className="relative py-32 bg-[#020617] overflow-hidden">
+    <section className="relative py-32 bg-card dark:bg-background overflow-hidden">
       {/* 装饰：背景巨大水印字 */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full text-[20vw] font-black text-white/[0.02] select-none pointer-events-none tracking-tighter">
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full text-[20vw] font-black text-foreground/[0.05] dark:text-foreground/[0.04] select-none pointer-events-none tracking-tighter">
         INFRASTRUCTURE
       </div>
 
@@ -43,27 +43,27 @@ function StatItem({ stat, index }: { stat: any; index: number }) {
       ref={ref}
       className={cn(
         "relative flex flex-col items-center lg:items-start lg:px-12",
-        index !== 3 && "lg:border-r lg:border-white/5",
+        index !== 3 && "lg:border-r lg:border-border",
       )}
     >
       {/* 顶部小标签 */}
       <div className="flex items-center gap-2 mb-4">
         <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-        <span className="text-[10px] font-bold tracking-[0.3em] text-zinc-500 uppercase">
+        <span className="text-[10px] font-bold tracking-[0.3em] text-muted-foreground uppercase">
           {stat.label}
         </span>
       </div>
 
       {/* 巨大的动态数字 */}
-      <div className="flex items-baseline text-white">
+      <div className="flex items-baseline text-foreground">
         <Counter value={stat.value} direction="up" />
-        <span className="text-4xl md:text-5xl font-light opacity-50 ml-1">
+        <span className="text-4xl md:text-5xl font-light opacity-50 ml-1 text-foreground">
           {stat.suffix}
         </span>
       </div>
 
       {/* 描述文案 */}
-      <p className="mt-4 text-sm text-zinc-500 font-medium leading-relaxed max-w-[160px] text-center lg:text-left">
+      <p className="mt-4 text-sm text-muted-foreground font-medium leading-relaxed max-w-[160px] text-center lg:text-left">
         {stat.desc}
       </p>
 

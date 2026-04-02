@@ -83,7 +83,7 @@ function SpotlightCard({ feature }: { feature: any }) {
     <div
       onMouseMove={onMouseMove}
       className={cn(
-        "group relative rounded-[2rem] border border-white/10 bg-zinc-900/20 p-8 overflow-hidden transition-all duration-500 hover:border-white/20",
+        "group relative rounded-[2rem] border border-border bg-card/80 p-8 overflow-hidden transition-all duration-500 hover:border-primary",
         feature.className,
       )}
     >
@@ -103,26 +103,26 @@ function SpotlightCard({ feature }: { feature: any }) {
 
       <div className="relative z-10 flex flex-col justify-between h-full min-h-[220px]">
         <div className="flex items-start justify-between">
-          <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-white">
+          <div className="p-3 rounded-2xl bg-accent/30 border border-border text-foreground dark:text-foreground">
             {feature.icon}
           </div>
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500">
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-muted-foreground">
             {feature.tag}
           </span>
         </div>
 
         <div>
-          <h4 className="text-2xl font-bold tracking-tight text-white mb-2">
+          <h4 className="text-2xl font-bold tracking-tight text-foreground mb-2">
             {feature.title}
           </h4>
-          <p className="text-zinc-400 text-sm leading-relaxed max-w-[240px]">
+          <p className="text-muted-foreground text-sm leading-relaxed max-w-[240px]">
             {feature.desc}
           </p>
         </div>
       </div>
 
       {/* 底部微光边框动画 */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-border to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
     </div>
   );
 }
