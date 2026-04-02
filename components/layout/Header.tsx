@@ -45,7 +45,7 @@ const navItems = [
     children: [
       {
         id: "01",
-        title: "COMPUTE",
+        title: "CLOUD CORE",
         desc: "Elastic High-Perf Instances",
         href: "/products/core",
       },
@@ -54,6 +54,12 @@ const navItems = [
         title: "VECTOR DB",
         desc: "Architected for LLM",
         href: "/products/db",
+      },
+      {
+        id: "03",
+        title: "AI PLATFORM",
+        desc: "End-to-End AI Ops",
+        href: "/products/ai",
       },
     ],
   },
