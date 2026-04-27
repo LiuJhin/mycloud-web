@@ -122,9 +122,6 @@ export function Header() {
       >
         {/* LOGO: 极简工业感 */}
         <Link href="/" className="group flex items-center gap-3">
-          <div className="relative w-8 h-8 bg-foreground dark:bg-card flex items-center justify-center rounded-lg overflow-hidden transition-transform group-hover:scale-110">
-            <Zap className="w-4 h-4 text-background dark:text-foreground fill-current" />
-          </div>
           <span className="text-[13px] font-black tracking-[0.2em] uppercase leading-none text-foreground dark:text-foreground">
             MYCLOUD
           </span>

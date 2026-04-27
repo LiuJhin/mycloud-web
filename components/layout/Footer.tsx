@@ -3,7 +3,6 @@
 import React from "react";
 import Link from "next/link";
 
-// 建议将链接抽取出来，方便维护
 const footerLinks = [
   {
     title: "服务中心",
@@ -36,130 +35,90 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-[var(--border)] bg-[var(--background)] py-16 lg:py-28 selection:bg-[var(--primary)]/10">
+    <footer className="relative border-t border-[var(--border)] bg-[var(--background)] py-20 lg:py-32">
       <div className="container mx-auto px-6 lg:px-12">
-        {/* 1. AWS 伙伴区域 (Certified Partnership Strip) */}
-        {/* scaled: Increased spacing, padding, and font size. Gray-to-color on hover. */}
-        <div className="mb-20 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 border border-[var(--border)] bg-[var(--card)] p-8 lg:p-10">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-[var(--primary)] animate-pulse" />
-            <span className="text-xs font-mono uppercase tracking-[0.3em] text-[var(--muted-foreground)]">
-              MyCloud Labs // Certified Infrastructure Partner
-            </span>
-          </div>
-          <div className="flex items-center gap-8 border-l border-[var(--border)] pl-10 h-16 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-            <img
-              src="/Home/aws_badge1.png"
-              alt="AWS Partner"
-              className="h-full w-auto object-contain"
-            />
-            <img
-              src="/Home/image-4.png"
-              alt="AWS Certification"
-              className="h-full w-auto object-contain"
-            />
-          </div>
-        </div>
-
-        {/* 2. 主页脚网格 (Main Footer Grid) */}
-        {/* scaled: Increased gap and font sizes for links. */}
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-5 mb-24">
-          {/* 品牌信息与订阅 */}
-          <div className="lg:col-span-2 space-y-10">
-            <div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-24">
+          {/* 左侧：Logo + 徽章 (锚点区) */}
+          <div className="lg:col-span-3 space-y-12">
+            <div className="space-y-8">
               <Link
                 href="/"
-                className="text-3xl font-black tracking-tighter uppercase italic text-[var(--foreground)]"
+                className="text-4xl font-black tracking-tighter uppercase italic block"
               >
                 MyCloud<span className="text-[var(--primary)]">.</span>
               </Link>
-              <p className="mt-6 max-w-sm text-base leading-relaxed text-[var(--muted-foreground)]">
-                领先的云端数字化基建，助力企业在 AI 时代实现敏捷创新与安全增长。
-              </p>
-            </div>
-
-            {/* 邮件订阅区域 (Newsletter Subscription) */}
-            {/* scaled: Full border design with clear, readable fonts. */}
-            <div className="space-y-4">
-              <h5 className="text-sm font-bold uppercase tracking-widest text-[var(--foreground)]">
-                订阅我们的技术周刊 (System_Log)
-              </h5>
-              <form className="flex max-w-md items-center border border-[var(--border)] bg-[var(--card)] p-1 hover:border-[var(--primary)] transition-colors">
-                <input
-                  type="email"
-                  placeholder="name@company.com"
-                  className="w-full bg-transparent px-4 py-3 text-sm outline-none placeholder:opacity-30 placeholder:text-[var(--muted-foreground)]"
+              {/* 徽章放在 Logo 下面 */}
+              <div className="flex flex-wrap gap-6 opacity-60 hover:opacity-100 transition-opacity">
+                <img
+                  src="/Home/aws_badge1.png"
+                  className="h-14 w-auto object-contain"
+                  alt="AWS Partner"
                 />
-                <button
-                  type="submit"
-                  className="flex-shrink-0 bg-[var(--foreground)] px-8 py-3 text-xs font-black uppercase tracking-widest text-[var(--background)] hover:bg-[var(--primary)] transition-colors"
-                >
-                  Submit
-                </button>
-              </form>
+                <img
+                  src="/Home/image-4.png"
+                  className="h-14 w-auto object-contain"
+                  alt="AWS Certification"
+                />
+              </div>
             </div>
+            <p className="text-[13px] leading-relaxed text-[var(--muted-foreground)]">
+              领先的云端数字化基建，助力企业在 AI 时代实现敏捷创新与安全增长。
+            </p>
           </div>
 
-          {/* 动态渲染链接组 */}
-          {footerLinks.map((group) => (
-            <div key={group.title}>
-              <h4 className="text-sm font-bold uppercase tracking-widest text-[var(--foreground)]">
-                {group.title}
-              </h4>
-              <ul className="mt-8 space-y-5">
-                {group.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="group flex items-center text-[15px] font-medium text-[var(--muted-foreground)] transition-colors hover:text-[var(--primary)]"
-                    >
-                      <span className="relative">
+          {/* 右侧：导航栏 */}
+          <div className="lg:col-span-9 grid grid-cols-2 md:grid-cols-3 gap-12">
+            {footerLinks.map((group) => (
+              <div key={group.title}>
+                <h4 className="text-[11px] font-black uppercase tracking-widest mb-8 text-[var(--foreground)]">
+                  {group.title}
+                </h4>
+                <ul className="space-y-4">
+                  {group.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-[14px] text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors"
+                      >
                         {link.label}
-                        <span className="absolute -bottom-1 left-0 h-px w-0 bg-[var(--primary)] transition-all duration-300 group-hover:w-full" />
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* 3. 底部版权与合规区 (Bottom Legal/Compliance Bar) */}
-        {/* scaled: Readable footer fonts and explicit social labels. */}
-        <div className="mt-16 border-t border-[var(--border)] pt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-          <div className="text-sm text-[var(--muted-foreground)] space-y-4 font-mono uppercase tracking-widest">
-            <p>
-              &copy; {new Date().getFullYear()} MyCloud Inc. All rights
-              reserved.
-            </p>
-            <div className="flex flex-wrap gap-x-8 gap-y-2 opacity-60 text-xs">
-              <Link
-                href="/privacy"
-                className="hover:text-[var(--foreground)] hover:underline"
-              >
-                隐私政策
-              </Link>
-              <Link
-                href="/terms"
-                className="hover:text-[var(--foreground)] hover:underline"
-              >
-                服务协议
-              </Link>
-              <Link
-                href="/icp"
-                className="hover:text-[var(--foreground)] hover:underline"
-              >
-                京ICP备XXXXXXXX号
-              </Link>
-            </div>
+        {/* 底部版权与法律声明 */}
+        <div className="border-t border-[var(--border)] pt-12 space-y-8">
+          <div className="max-w-4xl text-[10px] leading-[1.8] text-[var(--muted-foreground)] opacity-70 font-mono">
+            MYCloud only provides hybrid cloud services and cloud communication
+            services. Any behavior of users using Miaoyan Cloud does not
+            represent the will and opinions of Miaoyan Cloud and has nothing to
+            do with the position of Miaoyan Cloud. Users are strictly prohibited
+            from using Miaoyan Cloud to engage in any illegal or criminal
+            behavior. The user is responsible for any related responsibilities
+            arising therefrom, and MYCloud does not bear any legal
+            responsibility for this.
           </div>
 
-          {/* 社交媒体入口 (Social Entry Points) */}
-          <div className="flex gap-10 text-[11px] font-bold uppercase tracking-[0.3em] text-[var(--muted-foreground)]">
-            <SocialIcon platform="Twitter" />
-            <SocialIcon platform="GitHub" />
-            <SocialIcon platform="LinkedIn" />
+          <div className="flex flex-col md:flex-row justify-between items-start gap-6">
+            <div className="flex flex-wrap gap-x-8 gap-y-4 text-[10px] font-mono uppercase tracking-widest text-[var(--muted-foreground)]">
+              <span>
+                &copy; {new Date().getFullYear()} MYCLOUD GLOBAL LIMITED.
+              </span>
+              <span>
+                RM 1001(H), 10/F., HARBOUR CRYSTAL CENTRE, 100 GRANVILLE ROAD,
+                TSIM SHA TSUI, HONG KONG
+              </span>
+            </div>
+
+            <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest">
+              <SocialIcon platform="Twitter" />
+              <SocialIcon platform="GitHub" />
+              <SocialIcon platform="LinkedIn" />
+            </div>
           </div>
         </div>
       </div>
@@ -167,12 +126,11 @@ export function Footer() {
   );
 }
 
-// 社交图标组件 (Social Icon Component)
 function SocialIcon({ platform }: { platform: string }) {
   return (
     <a
       href="#"
-      className="cursor-pointer transition-colors hover:text-[var(--primary)]"
+      className="text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors"
     >
       {platform}
     </a>
