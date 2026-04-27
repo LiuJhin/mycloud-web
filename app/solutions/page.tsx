@@ -112,7 +112,7 @@ export default function Solutions() {
                     [{item.id}]
                   </span>
                   <span className="text-[9px] tracking-[0.3em] text-muted-foreground/40 italic uppercase">
-                    // {item.tag}
+                    {item.tag}
                   </span>
                 </div>
 

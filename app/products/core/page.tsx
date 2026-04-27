@@ -74,44 +74,6 @@ export default function CloudProductCenter() {
       ref={container}
       className="bg-background text-foreground min-h-screen py-10 selection:bg-primary selection:text-primary-foreground"
     >
-      {/* --- 1. 悬浮精密顶部 (The Refined Header) --- */}
-      <header className="fixed top-0 left-0 w-full z-50 px-6 py-4 pointer-events-none">
-        <div className="container mx-auto flex justify-between items-center">
-          {/* Logo 区域：晶体玻璃质感 */}
-          <div className="nav-element pointer-events-auto flex items-center gap-4 group">
-            <div className="relative w-12 h-12 flex items-center justify-center">
-              <div className="absolute inset-0 bg-foreground/[0.03] dark:bg-white/[0.03] border border-foreground/10 backdrop-blur-md rounded-xl transition-all duration-500 group-hover:rotate-90 group-hover:bg-primary/10 group-hover:border-primary/50" />
-              <div className="relative font-black text-xl italic tracking-tighter">
-                M
-                <span className="text-primary text-xs not-italic font-mono ml-0.5">
-                  .
-                </span>
-                C
-              </div>
-            </div>
-            <div className="hidden md:flex flex-col leading-none">
-              <span className="text-[10px] font-black uppercase tracking-[0.3em]">
-                MyCloud
-              </span>
-              <span className="text-[8px] font-mono text-muted-foreground/40 mt-1 uppercase">
-                Central_Hub.v2
-              </span>
-            </div>
-          </div>
-
-          {/* 顶部右侧：功能性微导引 */}
-          <nav className="nav-element pointer-events-auto flex items-center gap-2 bg-background/50 backdrop-blur-xl border border-border/50 px-2 py-1.5 rounded-full">
-            <button className="px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest bg-foreground text-background transition-transform active:scale-95">
-              Deploy
-            </button>
-            <div className="w-[1px] h-3 bg-border mx-1" />
-            <button className="p-2 text-muted-foreground hover:text-foreground transition-colors">
-              <LayoutGrid className="w-4 h-4" />
-            </button>
-          </nav>
-        </div>
-      </header>
-
       {/* --- 2. 主视觉区 (Main Hero) --- */}
       <div className="container mx-auto px-6 pt-40 mb-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">

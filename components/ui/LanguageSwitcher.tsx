@@ -2,14 +2,12 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { useLanguage, type Locale } from "@/components/i18n/LanguageProvider";
 import { Globe, ChevronDown } from "lucide-react";
 
-const languages = [
+const languages: { code: Locale; label: string; sub: string }[] = [
   { code: "zh", label: "中文", sub: "Mandarin" },
   { code: "en", label: "English", sub: "Global" },
-  { code: "jp", label: "日本語", sub: "East Asia" },
-  { code: "de", label: "Deutsch", sub: "Europe" },
 ];
 
 export function LanguageSwitcher() {
