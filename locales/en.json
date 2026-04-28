@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "button": {
+    "consult": "Free Consultation"
+  },
+  "hero": {
+    "title": "Leading the future",
+    "subtitle": "MyCloud provides secure, efficient and scalable cloud solutions for enterprises.",
+    "ctaStart": "Get Started",
+    "ctaLearn": "Learn More"
+  },
+  "products": {
+    "title": "Our Products",
+    "cloud": "Cloud Products",
+    "ai": "AI Products"
+  },
+  "wellArchitected": {
+    "tag": "Review",
+    "title": "Well-Architected",
+    "subtitle": "Review",
+    "desc": "Based on cloud-native best practices, we provide you with an in-depth architecture assessment to rebuild your infrastructure.",
+    "cta": "Start Review Now",
+    "pillar": {
+      "oe": {
+        "title": "Operational Excellence",
+        "desc": "Efficiently deliver and monitor business processes through automation and continuous improvement."
+      },
+      "sec": {
+        "title": "Security",
+        "desc": "Full-link hardware-level encryption and zero-trust architecture to protect your core digital assets."
+      },
+      "rel": {
+        "title": "Reliability",
+        "desc": "Multi-AZ disaster recovery and self-healing systems ensure 99.99% high availability."
+      },
+      "perf": {
+        "title": "Performance Efficiency",
+        "desc": "Adaptive resource allocation algorithms provide extreme computing performance during peak periods."
+      },
+      "cost": {
+        "title": "Cost Optimization",
+        "desc": "Refined billing and compute scheduling to reduce unnecessary resource loss by over 40%."
+      }
+    }
+  }
+}

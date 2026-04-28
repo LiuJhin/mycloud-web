@@ -103,7 +103,7 @@ function TraitItem({
     desc: string;
   };
   index: number;
-  containerRef: React.RefObject<HTMLElement>;
+  containerRef: React.RefObject<HTMLElement | null>;
 }) {
   const { scrollYProgress } = useScroll({
     target: containerRef,

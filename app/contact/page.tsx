@@ -2,17 +2,28 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
 import { Send } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   return (
-    <div className="relative min-h-screen bg-black text-white pt-32 pb-20 overflow-hidden">
-      {/* 1. 背景基建：0.5px 的精密网格与动态噪点 */}
-      <div className="absolute inset-0 z-0 opacity-20">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+    <div className="relative min-h-screen pt-32 pb-20 overflow-hidden">
+      {/* 物理背景层：沉浸式底色 */}
+      <div className="fixed inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1558494949-ef010bbbb317?q=80&w=2000"
+          alt="Infrastructure Background"
+          className="w-full h-full object-cover"
+        />
+        {/* 遮罩：实现背景与文字的视觉分离，适配主题变量 */}
+        <div className="absolute inset-0 bg-background/90 backdrop-blur-[2px]" />
+      </div>
+
+      {/* 精密网格层：叠加在背景之上 */}
+      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6 lg:px-12">
@@ -23,78 +34,96 @@ export default function Contact() {
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-xs font-mono tracking-[0.5em] text-zinc-500 uppercase"
+                className="text-xs font-mono tracking-[0.5em] text-muted-foreground uppercase"
               >
-                {/* // Communication Channel */}
+                //_INITIATE_CONTACT
               </motion.span>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-6 text-7xl md:text-8xl font-black tracking-tighter leading-[0.8] uppercase"
               >
-                Keep <br />
-                <span className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.3)]">
-                  In Touch
+                Establish <br />
+                <span className="text-transparent [-webkit-text-stroke:1px_var(--foreground)]">
+                  Link
                 </span>
               </motion.h1>
             </div>
 
             {/* 状态看板 */}
-            <div className="grid grid-cols-2 gap-8 border-t border-white/10 pt-12">
+            <div className="grid grid-cols-2 gap-8 border-t border-border pt-12">
               <StatusBadge
-                label="Global Status"
-                value="Online"
+                label="System Status"
+                value="OPERATIONAL"
                 color="bg-emerald-500"
               />
               <StatusBadge
-                label="Response Time"
-                value="< 2 Hours"
-                color="bg-primary"
+                label="Latency"
+                value="< 24MS"
+                color="bg-muted-foreground"
               />
             </div>
 
-            <p className="text-zinc-500 text-sm max-w-sm font-light leading-relaxed">
-              我们的技术专家正在全球范围内待命。
-              无论是架构咨询还是生态合作，我们都在这里为您解构未来。
+            {/* 通讯协议区 */}
+            <div className="space-y-6 pt-6">
+              <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+                //_AVAILABLE_PORTS
+              </p>
+              <div className="flex flex-col gap-3">
+                <ProtocolLink
+                  label="WHATSAPP"
+                  value="+852 9XXX XXXX"
+                  href="#"
+                />
+                <ProtocolLink label="TELEGRAM" value="@MyCloud_Ops" href="#" />
+                <ProtocolLink label="EMAIL" value="ops@mycloud.com" href="#" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground text-sm max-w-sm font-light leading-relaxed pt-6">
+              部署您的业务需求至 MyCloud
+              核心节点。我们的工程师团队将根据您的架构模型，在 2
+              小时内完成响应与评估。
             </p>
           </div>
 
-          {/* 右侧：极简表单区 */}
+          {/* 右侧：表单区 */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="relative p-1 rounded-3xl bg-gradient-to-br from-white/10 to-transparent"
+            className="relative p-[1px] rounded-[var(--radius)] bg-border"
           >
-            <form className="relative bg-zinc-950/80 backdrop-blur-3xl rounded-[1.4rem] p-8 md:p-12 space-y-10">
-              {/* 输入框重构 */}
+            <form className="relative bg-card/90 rounded-[var(--radius)] p-10 md:p-14 space-y-10">
               <InputField
-                label="Identity"
-                placeholder="您的姓名或企业名称"
+                label="CLIENT_ID"
+                placeholder="Name of your enterprise"
                 onChange={(v) => setForm({ ...form, name: v })}
               />
+
               <InputField
-                label="Protocol"
-                placeholder="your-email@domain.com"
+                label="COMM_PROTOCOL"
+                placeholder="contact@company.com"
                 type="email"
                 onChange={(v) => setForm({ ...form, email: v })}
               />
+
               <div className="space-y-4">
-                <label className="text-[10px] font-mono uppercase tracking-widest text-zinc-600 px-1">
-                  Message Body
+                <label className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground px-1">
+                  PAYLOAD_DATA
                 </label>
                 <textarea
                   rows={4}
-                  className="w-full bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-primary transition-colors resize-none text-zinc-300 placeholder:text-zinc-700"
-                  placeholder="在此输入您的咨询详情..."
+                  className="w-full bg-transparent border-b border-border py-3 focus:outline-none focus:border-foreground transition-colors resize-none text-foreground placeholder:text-muted text-sm"
+                  placeholder="Describe your technical requirements..."
                   onChange={(e) =>
                     setForm({ ...form, message: e.target.value })
                   }
                 />
               </div>
 
-              <Button className="w-full h-16 rounded-xl bg-white text-black font-black text-lg uppercase tracking-tighter hover:bg-zinc-200 group transition-all">
-                Establish Connection
-                <Send className="ml-3 w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <Button className="w-full h-16 rounded-[var(--radius)] bg-foreground text-background font-black text-lg uppercase tracking-tighter hover:bg-primary transition-all group">
+                Execute Transfer
+                <Send className="ml-3 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </form>
           </motion.div>
@@ -104,7 +133,32 @@ export default function Contact() {
   );
 }
 
-// 抽取的子组件：状态徽章
+function ProtocolLink({
+  label,
+  value,
+  href,
+}: {
+  label: string;
+  value: string;
+  href: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-4 text-sm font-mono hover:text-primary transition-colors"
+    >
+      <span className="w-24 text-[10px] text-muted-foreground uppercase">
+        {label}
+      </span>
+      <span className="text-foreground tracking-tight underline underline-offset-4 decoration-border group-hover:decoration-primary">
+        {value}
+      </span>
+    </a>
+  );
+}
+
 function StatusBadge({
   label,
   value,
@@ -116,18 +170,19 @@ function StatusBadge({
 }) {
   return (
     <div className="space-y-2">
-      <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
+      <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
         {label}
       </p>
       <div className="flex items-center gap-2">
-        <div className={`h-1.5 w-1.5 rounded-full ${color} animate-pulse`} />
-        <span className="font-bold tracking-tight">{value}</span>
+        <div className={`h-1.5 w-1.5 rounded-full ${color}`} />
+        <span className="font-bold tracking-tight text-[13px] uppercase text-foreground">
+          {value}
+        </span>
       </div>
     </div>
   );
 }
 
-// 抽取的子组件：极简输入行
 function InputField({
   label,
   placeholder,
@@ -137,18 +192,18 @@ function InputField({
   label: string;
   placeholder: string;
   type?: string;
-  onChange: (value: string) => void;
+  onChange: (v: string) => void;
 }) {
   return (
     <div className="group space-y-4">
-      <label className="text-[10px] font-mono uppercase tracking-widest text-zinc-600 px-1 group-focus-within:text-primary transition-colors">
+      <label className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground px-1 group-focus-within:text-foreground transition-colors">
         {label}
       </label>
       <input
         type={type}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-primary transition-colors text-zinc-300 placeholder:text-zinc-700"
+        className="w-full bg-transparent border-b border-border py-3 focus:outline-none focus:border-foreground transition-colors text-foreground placeholder:text-muted text-sm"
       />
     </div>
   );
